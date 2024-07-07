@@ -2,4 +2,5 @@
 *.iml
 .cpcache
 .nrepl-port
+.clj-kondo
 resources
