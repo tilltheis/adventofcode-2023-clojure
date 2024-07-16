@@ -1,6 +1,9 @@
 {:paths   ["src"]
- :aliases {:test {:extra-deps {io.github.cognitect-labs/test-runner
-                               {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
-                  :main-opts  ["-m" "cognitect.test-runner"]
-                  :exec-fn    cognitect.test-runner.api/test
-                  :exec-args  {:dirs ["src"] :patterns [".*"]}}}}
+ :aliases {:solve   {:main-opts ["-m" "aoc23.solver"]}
+           :profile {:main-opts  ["-m" "aoc23.profiler"]
+                     :jvm-opts   ["-Djdk.attach.allowAttachSelf"]
+                     :extra-deps {com.clojure-goes-fast/clj-async-profiler {:mvn/version "1.2.2"}}}
+           :test    {:extra-deps {io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                     :main-opts  ["-m" "cognitect.test-runner"]
+                     :exec-fn    cognitect.test-runner.api/test
+                     :exec-args  {:dirs ["src"] :patterns ["aoc23.day-.*"]}}}}
